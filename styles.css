@@ -144,8 +144,8 @@
 
   .faq-card {
     max-width: 600px;
-    padding: var(--spacing-300);
     margin-inline: auto;
+    padding: var(--spacing-300);
     background-color: var(--clr-white);
     border-radius: var(--br-soft);
   }
