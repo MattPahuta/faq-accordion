@@ -1,40 +1,24 @@
-# Design files (please do not remove 🙂)
-*.sketch
-*.fig
-*.xd
+# build output
+dist/
 
-# Dependencies
-/node_modules
-/.pnp
-.pnp.js
-yarn.debug.log*
-yarn.error.log*
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Environment and secrets
+# environment variables
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.production
 
-# Testing
-/coverage
-
-# Production
-/build
-/dist
-/.next
-/out
-
-# IDEs and editors
-/.idea
-/.vscode
-*.swp
-*.swo
-
-# Misc
-*.log
-*.pem
+# macOS-specific files
 .DS_Store
-Thumbs.db
+
+# jetbrains setting folder
+.idea/
