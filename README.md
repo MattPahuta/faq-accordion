@@ -1,6 +1,6 @@
 # Frontend Mentor - FAQ accordion solution
 
-This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -57,15 +57,17 @@ To see how you can add code snippets, see below:
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
+
 ```css
 .proud-of-this-css {
   color: papayawhip;
 }
 ```
+
 ```js
 const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+  console.log('🎉');
+};
 ```
 
 ### Continued development
@@ -74,9 +76,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is significantly different from this one, but I largely followed his general structure for the accordion markup along with the resource below.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
 
 ## Author
 
@@ -84,7 +85,6 @@ Use this section to outline areas that you want to continue focusing on in futur
 - Frontend Mentor - [@mattpahuta](https://www.frontendmentor.io/profile/MattPahuta)
 - Bluesky - [@mattpahuta](https://bsky.app/profile/mattpahuta.bsky.social)
 - LinkedIn - [Matt Pahuta](www.linkedin.com/in/mattpahuta)
-
 
 ## Acknowledgments
 

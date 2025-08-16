@@ -1,18 +1,17 @@
 ---
-
+import Accordion from './Accordion.astro';
 import starIcon from '../assets/icon-star.svg';
-import background from '../assets/background.svg';
 ---
 
 <div id="container">
 	<!-- <img id="background" src={background.src} alt="" fetchpriority="high" /> -->
 	<section class="component-container">
-		<header class="component-container">
+		<header class="component-header">
 			<img src={starIcon.src} alt="">
 			<h2>FAQs</h2>
 		</header>
-
-
+		<!-- import accordion component here -->
+		<Accordion />
 	</section>
 
 
@@ -21,6 +20,34 @@ import background from '../assets/background.svg';
 <style>
 	#container {
 		height: 100%;
+	}
+	.component-container {
+    max-width: 600px;
+    margin-inline: auto;
+    padding: var(--spacing-300);
+    background-color: var(--clr-white);
+    border-radius: var(--br-soft);
+  }
+  .component-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300);
+
+		h2 {
+			font-size: var(--heading-preset-1);
+		}
+  }
+	.component-header img {
+		width: 30px;
+		height: 30px;
+	}
+	
+	@media (min-width: 37.5rem) {
+		.component-header img {
+			width: 40px;
+			height: 40px;
+		}
+		
 	}
 
 </style>

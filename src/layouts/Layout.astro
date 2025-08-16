@@ -2,6 +2,8 @@
 // Supports weights 100-900
 import '@fontsource-variable/work-sans';
 import '@fontsource-variable/work-sans/wght-italic.css';
+
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +13,7 @@ import '@fontsource-variable/work-sans/wght-italic.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>FAQ Accordion</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<main class="main">
@@ -36,7 +38,7 @@ import '@fontsource-variable/work-sans/wght-italic.css';
 	.main {
     padding-inline: var(--spacing-300);
     /* dev only: */
-    padding-block-start: 4rem;
+    padding-block-start: 8rem;
   }
 
 	@media (min-width: 37.5rem) {

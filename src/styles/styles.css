@@ -1,8 +1,8 @@
 :root {
   /* Font Sizes */
-  --text-preset-1: 3.5rem;
-  --text-preset-2: 1.125rem;
-  --text-preset-3: 1rem;
+  --heading-preset-1: 2rem;
+  --text-preset-1: 1rem;
+  --text-preset-2: 0.875rem;
   /* Colors */
   --clr-white: #ffffff;
   --clr-black: #000000;
@@ -20,7 +20,16 @@
   --br-soft: 8px;
   --br-round: 9999px;
   @media (min-width: 37.5rem) {
+    --heading-preset-1: 3.5rem;
+    --text-preset-1: 1.125rem;
+    --text-preset-2: 1rem;
     --br-soft: 16px;
+  }
+}
+
+@layer base {
+  h1, h2, h3 {
+    line-height: 1.2;
   }
 }
 
@@ -32,32 +41,6 @@
   }
 
 
-  .faq-card {
-    max-width: 600px;
-    margin-inline: auto;
-    padding: var(--spacing-300);
-    background-color: var(--clr-white);
-    border-radius: var(--br-soft);
-  }
-  .faq-card-header {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-300);
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  @media (min-width: 37.5rem) {
-    .faq-card-header {
-      svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  }
 }
 
 @layer utilities {
