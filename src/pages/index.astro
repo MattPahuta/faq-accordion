@@ -1,12 +1,23 @@
 ---
-import ComponentContainer from '../components/ComponentContainer.astro';
 import Layout from '../layouts/Layout.astro';
+import ComponentContainer from '../components/ComponentContainer.astro';
+import ComponentHeader from '../components/ComponentHeader.astro';
+import Accordion from '../components/Accordion.astro';
+
 import '../styles/reset.css';
 import '../styles/styles.css';
-const pageTitle = "FAQ Accordion"
+
+import starIcon from '../assets/icon-star.svg';
+const title = "FAQ Accordion"
 
 ---
 
-<Layout pageTitle={pageTitle}>
-	<ComponentContainer />
+<Layout pageTitle={title}>
+	<ComponentContainer>
+		<ComponentHeader
+			iconSource={starIcon.src}
+			headingTitle="FAQs" 
+		/>
+		<Accordion />
+	</ComponentContainer>
 </Layout>

@@ -17,7 +17,6 @@ const { pageTitle } = Astro.props;
 	</head>
 	<body>
 		<main class="main">
-			<h1 class="visually-hidden">Please review our FAQs</h1>
 			<slot />
 		</main>
 	</body>
@@ -36,6 +35,7 @@ const { pageTitle } = Astro.props;
 		color: var(--clr-purple-950);
 	}
 	.main {
+		height: 100%;
     padding-inline: var(--spacing-300);
     /* dev only: */
     padding-block-start: 8rem;

@@ -1,0 +1,62 @@
+---
+import plusIcon from '../assets/icon-plus.svg';
+import minusIcon from '../assets/icon-minus.svg';
+
+const {headingId, contentId, question, answer} = Astro.props;
+---
+
+<!-- Accordion Panel -->
+<div class="accordion-panel">
+  <h3 id={headingId}>
+    <button 
+      class="accordion-trigger" 
+      aria-controls={contentId} 
+      aria-expanded="true"
+    >
+      <span id="panel1-title">{question}</span>
+      <img src={plusIcon.src} alt="" aria-hidden="true">
+      <!-- <img src={minusIcon.src} alt="" aria-hidden="true"> -->
+    </button>
+  </h3>
+  <div 
+    id={contentId} 
+    class="accordion-content"
+    aria-labelledby={headingId}
+    role="region">
+      <p>{answer}</p>
+  </div>
+</div>
+
+<style>
+  .accordion-trigger {
+    width: 100%;
+    padding-inline: 0;
+    padding-block: var(--spacing-300);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-300);
+    background-color: var(--clr-white);
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-preset-1);
+    font-weight: 600;
+    text-align: left;
+    transition: color 200ms ease-in-out;
+  }
+
+  .accordion-trigger:hover,
+  .accordion-trigger:focus-visible {
+    color: var(--clr-violet-600);
+  }
+
+  .accordion-panel:not(:last-child) {
+    border-bottom: 1px solid var(--clr-purple-100);
+  }
+  .accordion-content {
+    padding-block-end: var(--spacing-300);
+    font-size: var(--text-preset-2);
+    color: var(--clr-purple-600);
+  }
+</style>

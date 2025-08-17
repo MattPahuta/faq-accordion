@@ -1,0 +1,32 @@
+---
+const { iconSource, headingTitle } = Astro.props;
+---
+
+<header class="component-header">
+  <img src={iconSource} alt="">
+  <h2>{headingTitle}</h2>
+</header>
+
+<style>
+  .component-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-300);
+
+		h2 {
+			font-size: var(--heading-preset-1);
+		}
+  }
+	.component-header img {
+		width: 30px;
+		height: 30px;
+	}
+	
+	@media (min-width: 37.5rem) {
+		.component-header img {
+			width: 40px;
+			height: 40px;
+		}
+		
+	} 
+</style>
