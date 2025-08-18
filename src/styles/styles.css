@@ -18,7 +18,6 @@
   --spacing-500: 2.5rem;
   /* Border radius */
   --br-soft: 8px;
-  --br-round: 9999px;
   @media (min-width: 37.5rem) {
     --heading-preset-1: 3.5rem;
     --text-preset-1: 1.125rem;
@@ -31,16 +30,6 @@
   h1, h2, h3 {
     line-height: 1.2;
   }
-}
-
-
-@layer layout {
-  /* select everyting except first child */
-  .flow > * + * {
-    margin-block-start: var(--flow-space, 1em);
-  }
-
-
 }
 
 @layer utilities {

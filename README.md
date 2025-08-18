@@ -76,7 +76,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is significantly different from this one, but I largely followed his general structure for the accordion markup along with the resource below.
+- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is significantly different from this one, but much of my accordion's structure was modeled after his markup as well as the resource below.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author

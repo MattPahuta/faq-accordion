@@ -31,7 +31,11 @@ const faqData = [
     faqData.map((item) => {
       return (
         <AccordionPanel
+          id={item.id}
+          isOpen={item.id === 1}
           headingId={`panel${item.id}-heading`}
+          buttonId={`panel${item.id}-button`}
+          titleId={`panel${item.id}-title`}
           contentId={`panel${item.id}-content`}
           question={item.question}
           answer={item.answer}
@@ -40,6 +44,55 @@ const faqData = [
     })
   }
 </div>
+
+<script>
+
+
+const toggleButtons = document.querySelectorAll(".accordion-trigger");
+
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+
+    const targetButton = (e.target as HTMLElement).closest(".accordion-trigger") as HTMLElement;
+
+    hideAnswer();
+    showAnswer(targetButton);
+  });
+});
+
+// function toggleAccordion(panelToActivate: HTMLElement) {
+
+// }
+
+
+function showAnswer(btn: HTMLElement) {
+  const answerId = btn?.getAttribute("aria-controls") as string; // ID of answer panel
+  const targetAnswer = document.getElementById(answerId); // div containing panel content (answer)
+
+  btn?.setAttribute("aria-expanded", "true");
+  // targetAnswer?.removeAttribute("hidden");
+  targetAnswer?.setAttribute("aria-hidden", "false");
+  targetAnswer?.setAttribute("data-state", "open");
+
+}
+
+function hideAnswer() {
+  // document
+  //   .querySelectorAll(".accordion-content")
+  //   .forEach((answer) => answer.setAttribute("hidden", "true"));
+  document
+    .querySelectorAll(".accordion-content")
+    .forEach((answer) => {
+      // answer.setAttribute("hidden", "true");
+      answer.setAttribute("aria-hidden", "true");
+      answer.setAttribute("data-state", "closed");
+    });
+  document
+    .querySelectorAll(".accordion-trigger")
+    .forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
+}
+
+</script>
 
 <style>
   .accordion {
