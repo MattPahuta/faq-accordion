@@ -4,12 +4,10 @@ import minusIcon from '../assets/icon-minus.svg';
 
 const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = Astro.props;
 
-    // hidden={!isOpen}
-
 ---
 
 <div class="accordion-panel">
-  <h3 id={headingId}>
+  <h3 id={headingId} class="panel-heading">
     <button 
       id={buttonId}
       class="accordion-trigger" 
@@ -17,8 +15,8 @@ const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = 
       aria-expanded={isOpen}
     >
       <span id={titleId}>{question}</span>
-      <img class="icon plus-icon" src={plusIcon.src} alt="">
-      <img class="icon minus-icon" src={minusIcon.src} alt="">
+      <img class="icon plus-icon" src={plusIcon.src} alt="" aria-hidden="true">
+      <img class="icon minus-icon" src={minusIcon.src} alt="" aria-hidden="true">
     </button>
   </h3>
   <div 
@@ -27,33 +25,16 @@ const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = 
     aria-labelledby={headingId}
     role="region"
     aria-hidden={!isOpen}
-
     data-state={isOpen ? "open" : "closed"}
   > 
     <p>{answer}</p>
   </div>
 </div>
 
-<script>
-  // const triggerButtons = document.querySelectorAll("accordion-trigger");
-
-  // triggerButtons.forEach((button) => {
-  //   if (button.getAttribute("aria-expanded") === "true") {
-  //     document.querySelector(".plus-icon")?.setAttribute("hidden", "true")
-  //   } else (
-  //     document.querySelector(".plus-icon")?.setAttribute("hidden", "false")
-      
-  //   )
-  // })
-
-</script>
-
 <style>
-
   .accordion-trigger {
     width: 100%;
     padding-inline: 0;
-    padding-block: var(--spacing-300);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,6 +72,18 @@ const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = 
     border-bottom: 1px solid var(--clr-purple-100);
   }
 
+  .accordion-panel:not(:last-child) .accordion-content[aria-hidden="false"] {
+    padding-block-end: var(--spacing-300);
+  }
+
+  .accordion-panel:not(:last-child) .panel-heading {
+    margin-block-end: var(--spacing-300);
+  }
+
+  .accordion-panel:last-child .accordion-content[aria-hidden="false"] {
+    margin-block-start: var(--spacing-300);
+  }
+
   .accordion-content {
     font-size: var(--text-preset-2);
     color: var(--clr-purple-600);
@@ -102,10 +95,6 @@ const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = 
     .accordion-content {
       transition: max-height 350ms ease-in-out;
     }
-  }
-  
-  .accordion-content p {
-    padding-block-end: var(--spacing-300);
   }
 
   .accordion-content[data-state="open"] {

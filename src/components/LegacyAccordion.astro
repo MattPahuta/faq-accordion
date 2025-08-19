@@ -3,7 +3,74 @@ import plusIcon from '../assets/icon-plus.svg';
 import minusIcon from '../assets/icon-minus.svg';
 ---
 
-<!-- ToDo: Add data file, map accordion content -->
+<!-- Sample - Start -->
+<div class="accordion-panel">
+  <h2 id="panel1-heading">
+    <button
+      class="accordion-trigger"
+      aria-controls="panel1-content"
+      aria-expanded="true"
+    >
+      <span class="accordion-title" id="panel1-title">Boating</span>
+      <svg aria-hidden="true" class="accordion-icon">
+        <use xlink:href="#boat"></use>
+      </svg>
+    </button>
+  </h2>
+
+  <div
+    class="accordion-content"
+    id="panel1-content"
+    aria-labelledby="panel1-heading"
+    aria-hidden="false"
+    role="region"
+  >
+    <p>
+      Port mutiny draught handsomely ye furl flogging line shrouds hulk.
+      Spirits Plate Fleet code of conduct.
+    </p>
+    <img
+      class="accordion-image"
+      src="assets/boat.webp"
+      alt="A sailboat at sea during sunset"
+    />
+  </div>
+</div>
+
+<div class="accordion-panel">
+  <h2 id="panel2-title">
+    <button
+      class="accordion-trigger"
+      aria-expanded="false"
+      aria-controls="panel2-content"
+    >
+      <span class="accordion-title"> Anchors </span>
+
+      <svg aria-hidden="true" class="accordion-icon">
+        <use xlink:href="#anchor"></use>
+      </svg>
+    </button>
+  </h2>
+
+  <div
+    role="region"
+    aria-labelledby="panel2-title"
+    aria-hidden="true"
+    class="accordion-content"
+    id="panel2-content"
+  >
+    <p>
+      Ahoy league hands Sea Legs keelhaul salmagundi fire ship crimp
+      Privateer galleon. Booty boom yard boatswain quarter.
+    </p>
+    <img
+      class="accordion-image"
+      src="assets/anchor.webp"
+      alt="closeup of a metal chain connected to a metal ring in the ground"
+    />
+  </div>
+</div>
+<!-- Sample - End -->
 
 <div class="accordion">
   <!-- Accordion Panel 1 -->

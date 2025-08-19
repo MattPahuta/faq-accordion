@@ -23,7 +23,6 @@ const faqData = [
     answer: "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members."
   }
 ]
-
 ---
 
 <div class="accordion">
@@ -47,43 +46,29 @@ const faqData = [
 
 <script>
 
-
 const toggleButtons = document.querySelectorAll(".accordion-trigger");
 
 toggleButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-
     const targetButton = (e.target as HTMLElement).closest(".accordion-trigger") as HTMLElement;
-
-    hideAnswer();
+    hideAnswers();
     showAnswer(targetButton);
   });
 });
-
-// function toggleAccordion(panelToActivate: HTMLElement) {
-
-// }
 
 
 function showAnswer(btn: HTMLElement) {
   const answerId = btn?.getAttribute("aria-controls") as string; // ID of answer panel
   const targetAnswer = document.getElementById(answerId); // div containing panel content (answer)
-
   btn?.setAttribute("aria-expanded", "true");
-  // targetAnswer?.removeAttribute("hidden");
   targetAnswer?.setAttribute("aria-hidden", "false");
   targetAnswer?.setAttribute("data-state", "open");
-
 }
 
-function hideAnswer() {
-  // document
-  //   .querySelectorAll(".accordion-content")
-  //   .forEach((answer) => answer.setAttribute("hidden", "true"));
+function hideAnswers() {
   document
     .querySelectorAll(".accordion-content")
     .forEach((answer) => {
-      // answer.setAttribute("hidden", "true");
       answer.setAttribute("aria-hidden", "true");
       answer.setAttribute("data-state", "closed");
     });
@@ -96,6 +81,9 @@ function hideAnswer() {
 
 <style>
   .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
     /* padding-block-start: var(--spacing-300); */
   }
 
