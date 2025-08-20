@@ -2,7 +2,6 @@
 // Supports weights 100-900
 import '@fontsource-variable/work-sans';
 import '@fontsource-variable/work-sans/wght-italic.css';
-
 const { pageTitle } = Astro.props;
 ---
 
@@ -16,35 +15,44 @@ const { pageTitle } = Astro.props;
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<main class="main">
+		<h1 class="visually-hidden">
+      Frontend Mentor Accordion Component
+    </h1>
+		<main class="wrapper">
 			<slot />
 		</main>
 	</body>
 </html>
 
 <style>
-	html,
 	body {
-		width: 100%;
-		height: 100%;
+		min-height: 100vh;
 		font-family: 'Work Sans Variable', sans-serif;
+    font-size: var(--text-preset-1);
+    display: grid;
+    place-content: center;
 		background-image: url('../assets/background-pattern-mobile.svg');
 		background-repeat: no-repeat;
 		background-size: 100% auto;
-		background-color: var(--clr-purple-100);
-		color: var(--clr-purple-950);
+    background-color: var(--clr-purple-100);
+    color: var(--clr-purple-950);
 	}
-	.main {
-		height: 100%;
+
+	h1,
+  h2 {
+    font-size: var(--heading-preset-1);
+    line-height: 1.1;
+  }
+  
+  .wrapper {
     padding-inline: var(--spacing-300);
-    /* dev only: */
-    padding-block-start: 8.5rem;
   }
 
 	@media (min-width: 37.5rem) {
 		body {
 			background-image: url('../assets/background-pattern-desktop.svg');
+			background-size: auto;
+			background-position: top;
 		}
 	}
-
 </style>

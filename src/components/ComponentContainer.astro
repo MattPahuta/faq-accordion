@@ -2,16 +2,23 @@
 
 ---
 
-<section class="component-container">
+<div class="component-container">
 	<slot />
-</section>
+</div>
 
 <style>
-	.component-container {
+  .component-container {
     max-width: 600px;
-    margin-inline: auto;
     padding: var(--spacing-300);
     background-color: var(--clr-white);
     border-radius: var(--br-soft);
+    box-shadow: var(--box-shadow);
   }
+  
+  @media (min-width: 37.5rem) {
+    .component-container {
+      padding: var(--spacing-500);
+    }
+  }
+
 </style>

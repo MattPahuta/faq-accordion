@@ -8,38 +8,32 @@
   --clr-black: #000000;
   --clr-purple-950: #301534;
   --clr-purple-600: #8b6990;
-  --clr-purple-100: #f8eeff;
+  --clr-purple-100: #decdeb;
   --clr-violet-600: #ad28eb;
+  --box-shadow: 0 32px 56px rgba(80, 0, 118, 0.1);
   /* Spacing */
   --spacing-100: 0.5rem;
   --spacing-200: 1rem;
   --spacing-300: 1.5rem;
   --spacing-400: 2rem;
   --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
   /* Border radius */
-  --br-soft: 8px;
+  --br-soft: 0.5rem;
   @media (min-width: 37.5rem) {
     --heading-preset-1: 3.5rem;
     --text-preset-1: 1.125rem;
     --text-preset-2: 1rem;
-    --br-soft: 16px;
+    --br-soft: 1rem;
   }
 }
 
-@layer base {
-  h1, h2, h3 {
-    line-height: 1.2;
-  }
-}
-
-@layer utilities {
-  .visually-hidden:not(:focus):not(:active) {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
