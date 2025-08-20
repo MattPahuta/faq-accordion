@@ -2,8 +2,7 @@
 import plusIcon from '../assets/icon-plus.svg';
 import minusIcon from '../assets/icon-minus.svg';
 
-const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = Astro.props;
-
+const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
 ---
 
 <div class="accordion-panel">
@@ -25,7 +24,6 @@ const {id, isOpen, headingId, buttonId, titleId, contentId, question, answer} = 
     aria-labelledby={headingId}
     aria-hidden={!isOpen}
     role="region"
-    data-state={isOpen ? "open" : "closed"}
   > 
     <p>{answer}</p>
   </div>
@@ -112,8 +110,8 @@ button.accordion-trigger {
 
 /* Replace logic with data-state? */
 .accordion-trigger[aria-expanded="true"] .plus-icon {
-    display: none;
-  }
+  display: none;
+}
 .accordion-trigger[aria-expanded="true"] .minus-icon {
   display: block;
 }

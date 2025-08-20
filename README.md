@@ -75,12 +75,12 @@ const proudOfThisFunc = () => {
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 Project notes/respective
-- Performed some css gymnastics to the get the spacing right between accordion elements in various states. I went through several different revisions here (margins, flexbox, etc.). I'm sure there's a simpler approach that would have worked...
 - I'm a little surprised at how little CSS I needed to match the design comp
+- I could have made this component's logic and conditional rendering even simpler by adding React but in the end I decided to leave it as is and focus on the A11Y elements of the project. 
 
 ### Useful resources
 
-- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is significantly different from this one, but much of my accordion's structure was modeled after his markup as well as the resource below.
+- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is visually different from this one, but much of my accordion's structure was modeled after his markup (as well as the resource below) and my styles and transition animations are a slimmed down, inspired version of what he's doing in this video. It's a really helpful watch.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
