@@ -8,6 +8,7 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
 <section class="accordion-panel">
   <h3 id={headingId}>
     <button 
+      type="button"
       id={buttonId}
       class="accordion-trigger" 
       aria-controls={contentId} 
@@ -18,7 +19,7 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
       <img class="icon minus-icon" src={minusIcon.src} alt="" aria-hidden="true">
     </button>
   </h3>
-  <div 
+  <section 
     id={contentId} 
     class="accordion-content"
     aria-labelledby={headingId}
@@ -26,7 +27,7 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
     role="region"
   > 
     <p>{answer}</p>
-  </div>
+  </section>
 </section>
 
 <style>
@@ -36,7 +37,7 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
 }
 
 .accordion-panel:not(:last-child) {
-  border-bottom: 1px solid var(--clr-purple-100);
+  border-bottom: 1px solid var(--clr-purple-200);
 }
 
 .accordion-panel:has([aria-expanded='true']) {
