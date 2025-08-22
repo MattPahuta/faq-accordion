@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- [Frontend Mentor solution page](https://your-solution-url.com)
+- [Frontend Mentor solution page](https://www.frontendmentor.io/solutions/responsive-accordion-component-using-astro-VM8mIMLNx5)
 - [FAQ Accordion live site](https://faq-accordion-peach-gamma.vercel.app/)
 
 ## My process
