@@ -54,10 +54,9 @@ toggleButtons.forEach((button) => {
   });
 });
 
-
 function showAnswer(btn: HTMLElement) {
-  const answerId = btn?.getAttribute("aria-controls") as string; // ID of answer panel (contentId)
-  const targetAnswer = document.getElementById(answerId); // div containing panel content (answer)
+  const answerId = btn?.getAttribute("aria-controls") as string;
+  const targetAnswer = document.getElementById(answerId);
   btn?.setAttribute("aria-expanded", "true");
   targetAnswer?.setAttribute("aria-hidden", "false");
 }

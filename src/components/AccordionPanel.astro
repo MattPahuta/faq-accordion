@@ -5,7 +5,7 @@ import minusIcon from '../assets/icon-minus.svg';
 const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
 ---
 
-<div class="accordion-panel">
+<section class="accordion-panel">
   <h3 id={headingId}>
     <button 
       id={buttonId}
@@ -27,22 +27,16 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
   > 
     <p>{answer}</p>
   </div>
-</div>
+</section>
 
 <style>
 .accordion-panel {
-  flex-basis: calc((var(--spacing-100) * 2) + var(--spacing-600));
+  flex-basis: calc((var(--spacing-100) * 2) + var(--spacing-500));
   overflow: hidden;
 }
 
 .accordion-panel:not(:last-child) {
   border-bottom: 1px solid var(--clr-purple-100);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .accordion-panel {
-    transition: flex-basis 500ms, flex-grow 500ms;
-  }
 }
 
 .accordion-panel:has([aria-expanded='true']) {
@@ -62,6 +56,9 @@ const {isOpen, headingId, buttonId, contentId, question, answer} = Astro.props;
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .accordion-panel {
+    transition: flex-basis 500ms, flex-grow 500ms;
+  }
   .accordion-panel:has([aria-expanded='true']) p {
     transition: transform 500ms 500ms, opacity 500ms 500ms;
   }
@@ -82,12 +79,10 @@ button.accordion-trigger {
   padding-block: var(--spacing-300);
   text-align: left;
   line-height: 1.2;
-
   display: grid;
   grid-template-columns: 1fr auto;
   gap: var(--spacing-300);
   align-items: center;
-
   background: transparent;
   border: 0;
   padding: 0;
@@ -98,7 +93,7 @@ button.accordion-trigger {
 }
 
 .accordion-trigger:hover,
-.accordion-trigger:focus-within {
+.accordion-trigger:focus-visible {
   color: var(--clr-violet-600);
 }
 
@@ -108,7 +103,6 @@ button.accordion-trigger {
   aspect-ratio: 1 / 1;
 }
 
-/* Replace logic with data-state? */
 .accordion-trigger[aria-expanded="true"] .plus-icon {
   display: none;
 }

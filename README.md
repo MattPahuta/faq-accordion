@@ -14,9 +14,7 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -31,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./project-ss.png)
 
 ### Links
 
@@ -47,41 +45,76 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
+- [Astro](https://astro.build/) - JS web framework
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I borrowed much of my approach for handling the accordion panel opening and closing from Kevin Powell (referenced below). I tried a couple of other things first before settling on `flex-basis` and `flex-grow`. It seemed to generate the most consistently smooth animation.
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.accordion-panel {
+  flex-basis: calc((var(--spacing-100) * 2) + var(--spacing-500));
+  overflow: hidden;
+}
+
+.accordion-panel:not(:last-child) {
+  border-bottom: 1px solid var(--clr-purple-100);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion-panel {
+    transition: flex-basis 500ms, flex-grow 500ms;
+  }
+}
+
+.accordion-panel:has([aria-expanded='true']) {
+  flex-basis: clamp(6rem, 30vh, 13rem);
+  flex-grow: 1;
 }
 ```
 
+I decided to stick with JavaScript for handling the accordion interaction, but kept the code as straightforward as possible. Though the design comp doesn't explicitly state that only one FAQ panel should be open at a time, looking over various resources pointed me toward the approach (for both improved UX and accessibility). 
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉');
-};
+const toggleButtons = document.querySelectorAll(".accordion-trigger");
+
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    const targetButton = (e.target as HTMLElement).closest(".accordion-trigger") as HTMLElement;
+    hideAnswers();
+    showAnswer(targetButton);
+  });
+});
+
+function showAnswer(btn: HTMLElement) {
+  const answerId = btn?.getAttribute("aria-controls") as string;
+  const targetAnswer = document.getElementById(answerId);
+  btn?.setAttribute("aria-expanded", "true");
+  targetAnswer?.setAttribute("aria-hidden", "false");
+}
+
+function hideAnswers() {
+  document
+    .querySelectorAll(".accordion-content")
+    .forEach((answer) => {
+      answer.setAttribute("aria-hidden", "true");
+    });
+  document
+    .querySelectorAll(".accordion-trigger")
+    .forEach((trigger) => trigger.setAttribute("aria-expanded", "false"));
+}
 ```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+It was surprising how little CSS was actually needed to match the design comp and get the accordion behavior to work properly. In a future iteration of this project, I would likely use Tailwind rather than the custom CSS I have here.
 
-Project notes/respective
-- I'm a little surprised at how little CSS I needed to match the design comp
-- I could have made this component's logic and conditional rendering even simpler by adding React but in the end I decided to leave it as is and focus on the A11Y elements of the project. 
+I also recoginze I could have improved this component's rendering logic by adding React to the build. In the end, I decided to approach the challenge with a combination of CSS, JavaScript, and semantic markup to keep the focus on the accessibility elements of the project.
 
 ### Useful resources
 
-- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple years old now, but the content and best-practices presented is still relevant. The project Kevin works on in this video is visually different from this one, but much of my accordion's structure was modeled after his markup (as well as the resource below) and my styles and transition animations are a slimmed down, inspired version of what he's doing in this video. It's a really helpful watch.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Kevin Powell](https://www.youtube.com/watch?v=WJERnXiFFug) - This excellent video tutorial from Kevin Powell is a couple of years old now, but the content and best practices presented are still relevant. The project Kevin works on in this video is visually different from mine, but much of my accordion's structure was modeled after his markup (as well as the resource below), and my styles and transition animations are a slimmed-down, inspired version of what he's doing in this video. It's a really helpful watch.
+- [A11Y collective](https://www.a11y-collective.com/blog/accessible-accordion/#h-using-semantic-html-in-accordion-components) - The A11Y Collective is another great resource for all things accessibility, and this article in particular is extremely helpful in approaching an accessible accordion component. 
 
 ## Author
 
@@ -89,7 +122,3 @@ Project notes/respective
 - Frontend Mentor - [@mattpahuta](https://www.frontendmentor.io/profile/MattPahuta)
 - Bluesky - [@mattpahuta](https://bsky.app/profile/mattpahuta.bsky.social)
 - LinkedIn - [Matt Pahuta](www.linkedin.com/in/mattpahuta)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
